@@ -1,0 +1,24 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "removeComments": true,
+    "noEmit": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "incremental": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@external/*": ["external/*"],
+      "@entities/*": ["entities/*"],
+      "@middlewares/*": ["adapters/middlewares/*"],
+      "@repositories/*": ["adapters/repositories/*"],
+      "@useCases/*": ["./useCases/*"],
+      "@controllers/*": ["adapters/controllers/*"],
+      "@shared/*": ["shared/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

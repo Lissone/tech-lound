@@ -1,5 +1,6 @@
-# Ignite Lab 01
+# Ignite Lab 01 - Monorepo
 
+- Yarn Workspaces
 - NestJS
 - GraphQL
 - Apache Kafka
