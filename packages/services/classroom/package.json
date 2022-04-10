@@ -1,5 +1,5 @@
 {
-  "name": "@tech-lound/purchases",
+  "name": "@tech-lound/service-classroom",
   "version": "1.0.0",
   "repository": "https://github.com/Lissone/tech-lound.git",
   "author": "Leonardo Dias Lissone <leonardo.lissonez@gmail.com>",
@@ -7,7 +7,6 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",

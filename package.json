@@ -8,23 +8,28 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/configs/*",
+      "packages/services/*",
+      "packages/web"
     ]
   },
   "scripts": {
     "prepare": "husky install",
     "commit": "git-cz",
     "dev:web": "yarn workspace @tech-lound/web dev",
-    "dev:purchases": "yarn workspace @tech-lound/purchases start:dev",
-    "dev:classroom": "yarn workspace @tech-lound/classroom start:dev"
+    "dev:purchases": "yarn workspace @tech-lound/service-purchases start:dev",
+    "dev:classroom": "yarn workspace @tech-lound/service-classroom start:dev"
   },
   "devDependencies": {
-    "@tech-lound/lint-config": "*",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@tech-lound/lint-config": "*",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "pretty-quick": "^3.1.2",
+    "typescript": "^4.6.3"
   },
   "config": {
     "commitizen": {
@@ -33,7 +38,14 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "yarn commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "yarn commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn lint-staged"
     }
+  },
+  "lint-staged": {
+    "packages/**/*.ts?(x)": [
+      "yarn pretty-quick --staged",
+      "yarn eslint --fix --ext"
+    ]
   }
 }
