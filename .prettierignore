@@ -1,0 +1,7 @@
+[Bb]uild*
+[Dd]ist*
+[Bb]in*
+
+.eslintrc.js
+packages/**/*.js
+package-lock.json

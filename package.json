@@ -1,0 +1,39 @@
+{
+  "name": "tech-lound",
+  "version": "1.0.0",
+  "description": "Tech Lound description",
+  "repository": "https://github.com/Lissone/tech-lound.git",
+  "author": "Leonardo Dias Lissone <leonardo.lissonez@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "dev:web": "yarn workspace @tech-lound/web dev",
+    "dev:purchases": "yarn workspace @tech-lound/purchases start:dev",
+    "dev:classroom": "yarn workspace @tech-lound/classroom start:dev"
+  },
+  "devDependencies": {
+    "@tech-lound/lint-config": "*",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "yarn commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
