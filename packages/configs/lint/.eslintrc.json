@@ -1,9 +1,9 @@
 {
-	"env": {
-		"browser": true,
-		"es2021": true,
-		"node": true
-	},
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
   "settings": {
     "import/resolver": {
       "node": {
@@ -11,31 +11,32 @@
       }
     }
   },
-	"extends": [
+  "extends": [
     "next",
     "next/core-web-vitals",
-		"plugin:react/recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-		"airbnb",
+    "airbnb",
     "eslint-config-prettier",
     "prettier"
-	],
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true
-		},
-		"ecmaVersion": 12,
-		"sourceType": "module"
-	},
-	"plugins": [
-		"react",
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
     "@typescript-eslint",
     "prettier",
     "eslint-plugin-import-helpers"
-	],
-	"rules": {
-    "prettier/prettier": ["error",
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
       {
         "printWidth": 90,
         "semi": false,
@@ -61,13 +62,21 @@
     "no-param-reassign": [2, { "props": false }],
     "no-unused-vars": ["error", { "args": "none", "caughtErrors": "none" }],
     "array-callback-return": "off",
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
-    "react/jsx-filename-extension": [ "warn", { "extensions": [".tsx"] }],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "react/require-default-props": 0,
-		"react/jsx-props-no-spreading": "off",
-		"react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { "args": "none", "caughtErrors": "none" }],
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "args": "none", "caughtErrors": "none" }
+    ],
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -109,5 +118,5 @@
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]
-	}
+  }
 }

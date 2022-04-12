@@ -1,13 +1,26 @@
-import Head from 'next/head'
+import { getSession } from '@auth0/nextjs-auth0'
+import { GetServerSideProps } from 'next'
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Home</title>
-      </Head>
+export default function Login() {
+  return null
+}
 
-      <h1>Hello world</h1>
-    </>
-  )
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = getSession(req, res)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/api/autth/login',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    redirect: {
+      destination: '/app',
+      permanent: false
+    }
+  }
 }
