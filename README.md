@@ -28,3 +28,21 @@
 
 - [Auth] Listar cursos que tenho acesso
 - [Auth] Acessar conteúdo do curso
+
+### Docker
+
+```bash
+# Sobe container
+docker-compose up -d
+# Visualiza todos os containers rodando
+docker ps
+```
+
+### Prisma
+
+```bash
+# Cria migration de acordo com schema
+npx prisma migrate dev
+
+yarn prisma-studio
+```

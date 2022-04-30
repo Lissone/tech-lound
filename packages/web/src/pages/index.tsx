@@ -11,11 +11,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   if (!session) {
     return {
       redirect: {
-        destination: '/api/autth/login',
+        destination: '/api/auth/login',
         permanent: false
       }
     }
   }
+
+  console.log(session.accessToken)
 
   return {
     redirect: {
