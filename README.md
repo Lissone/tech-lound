@@ -41,8 +41,10 @@ docker ps
 ### Prisma
 
 ```bash
+# Cria referencia do Prisma Client pelo node_modules
+npx prisma generate
 # Cria migration de acordo com schema
 npx prisma migrate dev
-
+# Inicia servidor de studio do prisma
 yarn prisma-studio
 ```
