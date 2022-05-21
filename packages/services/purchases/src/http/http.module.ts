@@ -1,13 +1,16 @@
-import { ApolloDriver } from "@nestjs/apollo";
-import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
-import { GraphQLModule } from "@nestjs/graphql";
-import path from "node:path";
+import { ApolloDriver } from '@nestjs/apollo'
+import { Module } from '@nestjs/common'
+import { ConfigModule } from '@nestjs/config'
+import { GraphQLModule } from '@nestjs/graphql'
+import path from 'node:path'
 
-import { ProductsService } from "@services/products.service";
+import { DatabaseModule } from '@database/database.module'
 
-import { DatabaseModule } from "../database/database.module";
-import { ProductsResolver } from "./graphql/resolvers/products.resolver";
+import { ProductsResolver } from '@resolvers/products.resolver'
+import { PurchasesResolver } from '@resolvers/purchases.resolver'
+
+import { ProductsService } from '@services/products.service'
+import { PurchasesService } from '@services/purchases.service'
 
 @Module({
   imports: [
@@ -15,9 +18,16 @@ import { ProductsResolver } from "./graphql/resolvers/products.resolver";
     DatabaseModule,
     GraphQLModule.forRoot({
       driver: ApolloDriver,
-      autoSchemaFile: path.resolve(process.cwd(), "src/schema.gql"),
-    }),
+      autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql')
+    })
   ],
-  providers: [ProductsResolver, ProductsService],
+  providers: [
+    // Resolvers
+    ProductsResolver,
+    PurchasesResolver,
+    // Services
+    ProductsService,
+    PurchasesService
+  ]
 })
 export class HttpModule {}
