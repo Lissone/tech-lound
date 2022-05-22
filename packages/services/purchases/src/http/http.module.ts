@@ -6,6 +6,7 @@ import path from "node:path";
 
 import { DatabaseModule } from "@database/database.module";
 
+import { CustomersResolver } from "@resolvers/customers.resolver";
 import { ProductsResolver } from "@resolvers/products.resolver";
 import { PurchasesResolver } from "@resolvers/purchases.resolver";
 
@@ -24,6 +25,7 @@ import { PurchasesService } from "@services/purchases.service";
   ],
   providers: [
     // Resolvers
+    CustomersResolver,
     ProductsResolver,
     PurchasesResolver,
     // Services
