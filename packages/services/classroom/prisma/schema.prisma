@@ -11,6 +11,8 @@ datasource db {
 model Student {
   id String @id @default(uuid())
 
+  authUserId String? @unique
+
   enrollment Enrollment[]
 
   createdAt DateTime @default(now())
