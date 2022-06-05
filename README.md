@@ -32,8 +32,10 @@
 ### Docker
 
 ```bash
-# Sobe container
+# Sobe containers
 docker-compose up -d
+# Derruba containers
+docker-compose down
 # Visualiza todos os containers rodando
 docker ps
 ```

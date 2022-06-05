@@ -108,6 +108,7 @@
           "/^@models/",
           "/^@database/",
           "/^@http/",
+          "/^@messaging/",
           "/^@inputs/",
           "/^@resolvers/",
           "/^@services/",

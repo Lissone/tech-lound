@@ -12,6 +12,7 @@
     "baseUrl": "./src",
     "paths": {
       "@http/*": ["http/*"],
+      "@messaging/*": ["messaging/*"],
       "@services/*": ["services/*"],
       "@database/*": ["database/*"],
       "@inputs/*": ["http/graphql/inputs/*"],
