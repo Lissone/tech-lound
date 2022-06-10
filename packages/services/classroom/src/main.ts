@@ -4,7 +4,7 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices'
 
 import { AppModule } from './app.module'
 
-const SERVER_PORT = parseInt(process.env.PORT, 10) || 5010
+const SERVER_PORT = parseInt(process.env.SERVER_PORT, 10) || 5020
 const KAFKA_BROKERS = process.env.KAFKA_BROKERS || 'localhost:29092'
 
 const GLOBAL_PREFIX = 'api/v1'

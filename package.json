@@ -18,7 +18,8 @@
     "commit": "git-cz",
     "dev:web": "yarn workspace @tech-lound/web dev",
     "dev:purchases": "yarn workspace @tech-lound/service-purchases start:dev",
-    "dev:classroom": "yarn workspace @tech-lound/service-classroom start:dev"
+    "dev:classroom": "yarn workspace @tech-lound/service-classroom start:dev",
+    "dev:gateway": "yarn workspace @tech-lound/gateway start:dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
