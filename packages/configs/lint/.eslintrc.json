@@ -43,7 +43,7 @@
         "singleQuote": true,
         "trailingComma": "none",
         "tabWidth": 2,
-        "arrowParens": "avoid",
+        "arrowParens": "always",
         "endOfLine": "auto",
         "max-len": ["error", { "code": 90 }]
       }
@@ -112,6 +112,8 @@
           "/^@inputs/",
           "/^@resolvers/",
           "/^@services/",
+          "/^@graphql/",
+          "/^@libs/",
           "/^@contexts/",
           "/^@hooks/",
           "/^@components/",

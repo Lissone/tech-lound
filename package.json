@@ -1,7 +1,7 @@
 {
   "name": "tech-lound",
   "version": "1.0.0",
-  "description": "Tech Lound description",
+  "description": "Online technology course platform.",
   "repository": "https://github.com/Lissone/tech-lound.git",
   "author": "Leonardo Dias Lissone <leonardo.lissonez@gmail.com>",
   "license": "MIT",

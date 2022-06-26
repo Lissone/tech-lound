@@ -1,8 +1,21 @@
-import { getSession } from '@auth0/nextjs-auth0'
+import { getSession, useUser } from '@auth0/nextjs-auth0'
 import { GetServerSideProps } from 'next'
+import Head from 'next/head'
 
-export default function Login() {
-  return null
+export default function Home() {
+  const { user } = useUser()
+
+  return (
+    <>
+      <Head>TechLound - Home</Head>
+
+      <div>
+        <h1>Hello World</h1>
+
+        <pre>{JSON.stringify(user, null, 2)}</pre>
+      </div>
+    </>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
@@ -20,9 +33,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   console.log(session.accessToken)
 
   return {
-    redirect: {
-      destination: '/app',
-      permanent: false
-    }
+    props: {}
   }
 }
