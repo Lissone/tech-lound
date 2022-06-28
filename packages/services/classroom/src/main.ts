@@ -4,14 +4,11 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices'
 
 import { AppModule } from './app.module'
 
-const SERVER_PORT = parseInt(process.env.SERVER_PORT, 10) || 5020
+const PORT = Number(process.env.PORT) || 5020
 const KAFKA_BROKERS = process.env.KAFKA_BROKERS || 'localhost:29092'
-
-const GLOBAL_PREFIX = 'api/v1'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-  app.setGlobalPrefix(GLOBAL_PREFIX)
 
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.KAFKA,
@@ -27,8 +24,8 @@ async function bootstrap() {
     Logger.log('Microservice running!')
   })
 
-  await app.listen(SERVER_PORT, () => {
-    Logger.log(`Listening on port ${SERVER_PORT}`)
+  await app.listen(PORT, () => {
+    Logger.log(`Listening on port ${PORT}`)
   })
 }
 

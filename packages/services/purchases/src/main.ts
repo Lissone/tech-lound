@@ -1,18 +1,16 @@
-import { Logger } from '@nestjs/common'
-import { NestFactory } from '@nestjs/core'
+import { Logger } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
 
-import { AppModule } from './app.module'
+import { AppModule } from "./app.module";
 
-const SERVER_PORT = parseInt(process.env.SERVER_PORT, 10) || 5010
-const GLOBAL_PREFIX = 'api/v1'
+const PORT = Number(process.env.PORT) || 5010;
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
-  app.setGlobalPrefix(GLOBAL_PREFIX)
+  const app = await NestFactory.create(AppModule);
 
-  await app.listen(SERVER_PORT, () => {
-    Logger.log(`Listening on port ${SERVER_PORT}`)
-  })
+  await app.listen(PORT, () => {
+    Logger.log(`Listening on port ${PORT}`);
+  });
 }
 
-bootstrap()
+bootstrap();
