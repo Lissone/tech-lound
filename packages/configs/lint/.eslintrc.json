@@ -73,6 +73,7 @@
     "react/require-default-props": 0,
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
+    "@next/next/no-img-element": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       { "args": "none", "caughtErrors": "none" }

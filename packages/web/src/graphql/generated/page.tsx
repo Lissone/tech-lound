@@ -7,6 +7,7 @@ import { QueryHookOptions, useQuery } from "@apollo/client";
 import * as Apollo from "@apollo/client";
 import type React from "react";
 import { getApolloClient, ApolloClientContext } from "../../libs/withApollo";
+
 export async function getServerPageMe(
   options: Omit<Apollo.QueryOptions<Types.MeQueryVariables>, "query">,
   ctx: ApolloClientContext
