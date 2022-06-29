@@ -5,3 +5,7 @@
 .eslintrc.js
 packages/**/*.js
 package-lock.json
+
+packages/web/src/graphql/generated/*.tsx
+
+packages/services/**/src/schema.gql
