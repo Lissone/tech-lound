@@ -1,0 +1,23 @@
+# docker
+.dockerignore
+Dockerfile*
+docker-compose*
+
+# git
+.git
+.gitignore
+
+# generated
+node_modules
+build
+dist
+coverage
+
+# other
+*.log
+.github
+.husky
+.vscode
+.env.example
+CHANGELOG.md
+README.md

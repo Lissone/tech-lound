@@ -1,7 +1,53 @@
 version: "3"
 
 services:
-  # Application
+  gateway:
+    build: ./packages/services/gateway
+    container_name: gateway
+    command: sh -c "dockerize -wait tcp://purchases:5010 -wait tcp://classroom:5020 npm start"
+    depends_on:
+      - purchases
+      - classroom
+    environment:
+      PORT: 5000
+      PURCHASES_BASE_URL: http://localhost:5010/graphql
+      CLASSROOM_BASE_URL: http://localhost:5020/graphql
+    ports:
+      - 5000:5000
+
+  purchases:
+    build: ./packages/services/purchases
+    container_name: purchases
+    command: sh -c "dockerize -wait tcp://zookeeper:2181 -wait tcp://kafka:9092 -wait tcp://database:5432 npm start"
+    depends_on:
+      - zookeeper
+      - kafka
+      - database
+    environment:
+      PORT: 5010
+      AUTH0_AUDIENCE: tech-lound-auth
+      AUTH0_DOMAIN: https://tech-lound.us.auth0.com/
+      DATABASE_URL: "postgresql://docker:docker@localhost:5432/purchases?schema=public"
+      KAFKA_BROKERS: localhost:29092
+    ports:
+      - 5010:5010
+      
+  classroom:
+    build: ./packages/services/classroom
+    container_name: classroom
+    command: sh -c "dockerize -wait tcp://zookeeper:2181 -wait tcp://kafka:9092 -wait tcp://database:5432 npm start"
+    depends_on:
+      - zookeeper
+      - kafka
+      - database
+    environment:
+      PORT: 5020
+      AUTH0_AUDIENCE: tech-lound-auth
+      AUTH0_DOMAIN: https://tech-lound.us.auth0.com/
+      DATABASE_URL: "postgresql://docker:docker@localhost:5432/purchases?schema=public"
+      KAFKA_BROKERS: localhost:29092
+    ports:
+      - 5020:5020
 
   database:
     image: "bitnami/postgresql"
