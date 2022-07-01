@@ -31,9 +31,13 @@
 
 ## Description
 
-Project to register expenses and deposit, as a way to control and report the progress of your finances.
+The project is a **platform for programming courses**, divided into microservices with the idea of ​​separating business rules from the application and atomizing their processes.
 
-At the moment working only with a fake api, to improve the learning of present technologies.
+The services communicate using **Apache Kafka** as Message Broker, and are integrated into a third service called **gateway**, which joins the purchases and classroom api using **Apollo Gateway** so that only one End-Point is needed to be consumed by the Front End, and application authentication is done using **Auth0**.
+
+This project was developed for me to learn more about GraphQL, Apollo, Kafka and Docker. It was my **first contact with these technologies**, and I really enjoyed developing this project with them. I intend to use GraphQL in more projects that I will create in the future and this project was the basis for my knowledge of the technology.
+
+I created an **Application Flow** to facilitate the understanding of the integration and union between the services:
 
 <img src="./.github/application-flow.png" alt="Application Flow" width="100%" height="100%"/>
 
@@ -50,7 +54,8 @@ At the moment working only with a fake api, to improve the learning of present t
 - Typescript
 - NestJs
 - GraphQL
-- Apollo Federation (Gateway)
+- Apollo Federation
+- Apollo Gateway
 - Apache Kafka
 - Prisma
 - PostgreSQL
@@ -66,28 +71,6 @@ At the moment working only with a fake api, to improve the learning of present t
 - Commitlint
   - Commitizen
 
-### Docker
-
-```bash
-# Sobe containers
-docker-compose up -d
-# Derruba containers
-docker-compose down
-# Visualiza todos os containers rodando
-docker ps
-```
-
-### Prisma
-
-```bash
-# Cria referencia do Prisma Client pelo node_modules
-npx prisma generate
-# Cria migration de acordo com schema
-npx prisma migrate dev
-# Inicia servidor de studio do prisma
-yarn prisma-studio
-```
-
 ## Usage
 
 You can clone it on your pc using the command:
@@ -97,6 +80,19 @@ git clone https://github.com/Lissone/tech-lound.git
 cd tech-lound
 ```
 
+>  ❗  You must have **Docker installed** on your machine to get the container up.
+**Up Kafka and Postgres services** in a **Docker container** on your local machine using:
+
+```bash
+docker-compose up -d
+# View all running containers
+docker ps
+```
+
+>❗  As the application authentication was performed by a third-party service (**Auth0**), **it is necessary to configure it through the technology website**, accessing this [link](https://manage.auth0.com/dashboard). There you will get all the missing environment variables.
+
+>❗  It is necessary to **configure the environment variables of each of the projects**, access the individual **.env.example** file of each of the projects to facilitate the addition.
+
 Install dependencies using:
 
 ```bash
@@ -105,19 +101,60 @@ yarn
 npm install
 ```
 
-Run web:
+**Generate the Prisma Client** on the two services that use Prisma, using:
 
 ```bash
-yarn dev
-#or
-npm run dev
+# Purchases service
+yarn purchases:prisma
+# Classroom service
+yarn classroom:prisma
+# or using npm
 ```
 
-## Demonstration
+Run **Purchases service**:
 
-**Dashboard**
+```bash
+# Use a dedicated terminal 
+yarn dev:purchases
+#or
+npm run dev:purchases
+```
 
-<img src="https://i.imgur.com/1Pq5rFp.png" alt="Demo homepage" width="100%" height="100%"/>
+Run **Classroom service**:
+
+```bash
+# Use a dedicated terminal 
+yarn dev:classroom
+#or
+npm run dev:classroom
+```
+
+Run **Gateway service**:
+
+```bash
+# Use a dedicated terminal 
+yarn dev:gateway
+#or
+npm run dev:gateway
+```
+
+Run **Web**:
+
+```bash
+# Use a dedicated terminal 
+yarn dev:web
+#or
+npm run dev:web
+```
+
+> ℹ️  You can **view the database** from Prisma Studio on the two services that use Prisma, using:
+
+```bash
+# Purchases / Classroom service
+yarn prisma-studio
+#or
+npm run prisma-studio
+```
 
 ## License
 

@@ -11,6 +11,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "prisma:generate": "npx prisma generate",
     "prisma-studio": "npx prisma studio --port 5551"
   },
   "dependencies": {
