@@ -16,14 +16,17 @@
       "@routes/*": ["routes/*"],
       "@utils/*": ["utils/*"],
       "@type/*": ["type/*"],
+      "@graphql/*": ["graphql/*"],
+      "@libs/*": ["libs/*"],
       "@services/*": ["services/*"],
       "@contexts/*": ["contexts/*"],
       "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"]
-    }
+    },
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }

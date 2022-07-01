@@ -11,13 +11,13 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
-      "@external/*": ["external/*"],
-      "@entities/*": ["entities/*"],
-      "@middlewares/*": ["adapters/middlewares/*"],
-      "@repositories/*": ["adapters/repositories/*"],
-      "@useCases/*": ["./useCases/*"],
-      "@controllers/*": ["adapters/controllers/*"],
-      "@shared/*": ["shared/*"]
+      "@http/*": ["http/*"],
+      "@messaging/*": ["messaging/*"],
+      "@services/*": ["services/*"],
+      "@database/*": ["database/*"],
+      "@inputs/*": ["http/graphql/inputs/*"],
+      "@models/*": ["http/graphql/models/*"],
+      "@resolvers/*": ["http/graphql/resolvers/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
